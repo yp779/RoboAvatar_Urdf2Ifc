@@ -1,0 +1,265 @@
+<?xml version="1.0" ?>
+<robot name="DIABLO">
+  <material name="dark">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+  <material name="light_black">
+    <color rgba="0.4 0.4 0.4 1.0"/>
+  </material>
+  <joint name="DIABLO__Motor0_L" type="revolute">
+    <parent link="DIABLO__Body"/>
+    <child link="DIABLO__Leg0_L"/>
+    <origin xyz="0      0.12375 0" rpy="0      -0.78539  3.14159"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="-3.53" upper="1.96" effort="-1.0" velocity="-1.0"/>
+  </joint>
+  <joint name="DIABLO__Motor0_R" type="revolute">
+    <parent link="DIABLO__Body"/>
+    <child link="DIABLO__Leg0_R"/>
+    <origin xyz="0     -0.1238  0" rpy="0      0.78539 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.53" upper="1.96" effort="-1.0" velocity="-1.0"/>
+  </joint>
+  <joint name="DIABLO__Motor1_L" type="revolute">
+    <parent link="DIABLO__Leg0_L"/>
+    <child link="DIABLO__Leg1_L"/>
+    <origin xyz="0     -0.0525  0" rpy="-1.58303 -1.57079 -1.55856"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.39" upper="1.57" effort="-1.0" velocity="-1.0"/>
+  </joint>
+  <joint name="DIABLO__Motor1_R" type="revolute">
+    <parent link="DIABLO__Leg0_R"/>
+    <child link="DIABLO__Leg1_R"/>
+    <origin xyz="0      -0.05245  0" rpy="-1.58303  1.57079  1.55856"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="-1.39" upper="1.57" effort="-1.0" velocity="-1.0"/>
+  </joint>
+  <joint name="DIABLO__J1_L" type="revolute">
+    <parent link="DIABLO__Leg0_L"/>
+    <child link="DIABLO__Leg2_L"/>
+    <origin xyz="0     -0.0685 -0.09" rpy="-1.58303 -1.57079 -1.55856"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.39" upper="1.57" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="DIABLO__J1_R" type="revolute">
+    <parent link="DIABLO__Leg0_R"/>
+    <child link="DIABLO__Leg2_R"/>
+    <origin xyz="0      -0.05245 -0.09" rpy="3.14159 -1.57079  3.14159"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.39" upper="1.57" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="DIABLO__J2_L" type="revolute">
+    <parent link="DIABLO__Leg1_L"/>
+    <child link="DIABLO__Leg3_L"/>
+    <origin xyz="0       0.03925 -0.14" rpy="1.58303 -1.57079  1.55856"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="-1.57" upper="1.39" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="DIABLO__J2_R" type="revolute">
+    <parent link="DIABLO__Leg1_R"/>
+    <child link="DIABLO__Leg3_R"/>
+    <origin xyz="0       0.03925 -0.14" rpy="1.58303  1.57079 -1.55856"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.39" effort="0.0" velocity="0.0"/>
+  </joint>
+  <joint name="DIABLO__J3_L" type="fixed">
+    <parent link="DIABLO__Leg2_L"/>
+    <child link="DIABLO__Leg3_L"/>
+    <origin xyz="0       0.02325 -0.14" rpy="1.58303 -1.57079  1.55856"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="DIABLO__J3_R" type="fixed">
+    <parent link="DIABLO__Leg2_R"/>
+    <child link="DIABLO__Leg3_R"/>
+    <origin xyz="0      -0.03925 -0.14" rpy="3.14159 1.57079 3.14159"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="DIABLO__Motor2_L" type="fixed">
+    <parent link="DIABLO__Leg3_L"/>
+    <child link="DIABLO__Wheel_L"/>
+    <origin xyz="0      -0.03075 -0.05" rpy="0      0.78539 0"/>
+    <axis xyz="0 -1  0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="DIABLO__Motor2_R" type="fixed">
+    <parent link="DIABLO__Leg3_R"/>
+    <child link="DIABLO__Wheel_R"/>
+    <origin xyz="0      -0.03075 -0.05" rpy="0      -0.78539  0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <link name="DIABLO__Body">
+    <inertial>
+      <mass value="6.72372"/>
+      <origin xyz="0.01243  0.00014 -0.00675" rpy="0 0 0"/>
+      <inertia ixx="0.04835304544" ixy="-0.00000187046" ixz="-0.00263123506" iyy="0.07156251226" iyz="0.00000709833" izz="0.07239192173"/>
+    </inertial>
+    <collision name="DIABLO__collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Body.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Body.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg0_R">
+    <inertial>
+      <mass value="2.46054"/>
+      <origin xyz="-0.00036  0.01353 -0.00417" rpy="0 0 0"/>
+      <inertia ixx="0.00853721554" ixy="-0.00000557176" ixz="-0.00000007947" iyy="0.00817363920" iyz="0.00020599673" izz="0.00794292074"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_0.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg0_L">
+    <inertial>
+      <mass value="2.46054"/>
+      <origin xyz="-0.00036  0.01353 -0.00417" rpy="0 0 0"/>
+      <inertia ixx="0.00853721554" ixy="-0.00000557176" ixz="-0.00000007947" iyy="0.00817363920" iyz="0.00020599673" izz="0.00794292074"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_0.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg1_R">
+    <inertial>
+      <mass value="1.24694"/>
+      <origin xyz="-0.00012 -0.02373 -0.00534" rpy="0 0 0"/>
+      <inertia ixx="0.00293798860" ixy="-0.00003883141" ixz="0.00009809991" iyy="0.00343777913" iyz="-0.00004625489" izz="0.00226057779"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_1_R.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg1_L">
+    <inertial>
+      <mass value="1.24694"/>
+      <origin xyz="0.00196 -0.02373 -0.00534" rpy="0 0 0"/>
+      <inertia ixx="0.00282971660" ixy="-0.00001808035" ixz="-0.00009872009" iyy="0.00344247372" iyz="-0.00006052905" izz="0.00214713102"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_1_L.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg2_R">
+    <inertial>
+      <mass value="0.10247"/>
+      <origin xyz="-0.01628 -0.008   -0.07331" rpy="0 0 0"/>
+      <inertia ixx="0.00081266186" ixy="0.00001334864" ixz="0.00012964651" iyy="0.00085532347" iyz="0.00006246273" izz="0.00006022942"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_2.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg2_L">
+    <inertial>
+      <mass value="0.10247"/>
+      <origin xyz="-0.01628 -0.008   -0.07331" rpy="0 0 0"/>
+      <inertia ixx="0.00081266186" ixy="0.00001334864" ixz="0.00012964651" iyy="0.00085532347" iyz="0.00006246273" izz="0.00006022942"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_2.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg3_R">
+    <inertial>
+      <mass value="1.29685"/>
+      <origin xyz="-0.00127 -0.02001  0.00598" rpy="0 0 0"/>
+      <inertia ixx="0.00302829941" ixy="-0.00003267530" ixz="-0.00018726087" iyy="0.00363170943" iyz="-0.00016180170" izz="0.00218077632"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0    0   -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_3.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Leg3_L">
+    <inertial>
+      <mass value="1.29685"/>
+      <origin xyz="-0.00127 -0.02001  0.00598" rpy="0 0 0"/>
+      <inertia ixx="0.00302829941" ixy="-0.00003267530" ixz="-0.00018726087" iyy="0.00363170943" iyz="-0.00016180170" izz="0.00218077632"/>
+    </inertial>
+    <visual name="DIABLO__visual">
+      <origin xyz="0    0   -0.05" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Leg_3.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Wheel_R">
+    <inertial>
+      <mass value="1.36187"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00349977" ixy="0" ixz="0" iyy="0.00660656" iyz="0" izz="0.00349977"/>
+    </inertial>
+    <collision name="DIABLO__collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Wheel.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Wheel.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+  </link>
+  <link name="DIABLO__Wheel_L">
+    <inertial>
+      <mass value="1.36187"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.00349977" ixy="0" ixz="0" iyy="0.00660656" iyz="0" izz="0.00349977"/>
+    </inertial>
+    <collision name="DIABLO__collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Wheel.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>
+    <visual name="DIABLO__visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/oem/jChen_RobAvatar/RobAvatar/Project0.2/urdf_models/Diablo/Wheel.stl" scale="1.0 1.0 1.0"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+  </link>
+</robot>

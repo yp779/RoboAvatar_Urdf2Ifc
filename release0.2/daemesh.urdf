@@ -1,0 +1,20 @@
+<!-- 
+    需求: 长方体
+
+ -->
+<robot name="mycar">
+    <!-- 底盘 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="/home/ilab/URDF2IFC/Project/urdf_models/test.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="blue">
+                <color rgba="0 0 1.0 0.5" />
+            </material>
+        </visual>
+    </link>
+
+</robot>
+

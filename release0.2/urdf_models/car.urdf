@@ -1,0 +1,43 @@
+<!-- 
+    需求: 底盘为长方体、
+    在前方有一个可以沿Z轴自由旋转的摄像头
+    的机器人模型
+ -->
+<robot name="mycar">
+    <!-- 底盘 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.5 0.2 0.1" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="blue">
+                <color rgba="0 0 1.0 0.5" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- 摄像头 -->
+    <link name="camera">
+        <visual>
+            <geometry>
+                <box size="0.02 0.05 0.05" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="red">
+                <color rgba="1 0 0 0.5" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- 关节 -->
+    <joint name="camera2baselink" type="continuous">
+        <parent link="base_link"/>
+        <child link="camera" />
+        <!-- 需要计算两个 link 的物理中心之间的偏移量 -->
+        <origin xyz="0.2 0 0.075" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+    </joint>
+
+</robot>
+
